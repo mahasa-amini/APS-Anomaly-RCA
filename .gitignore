@@ -1,0 +1,21 @@
+# Mac
+.DS_Store
+
+# Data files
+*.csv
+*.npy
+
+# Models
+*.pkl
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Processed data
+data/processed/
+
+# Figures
+figures/
+figures_interactive/
+
