@@ -6,15 +6,52 @@ separate artifacts and should not be treated as one validated experiment.
 
 ## Current evidence and scope
 
-- **The new Phase 1 workflow has no full APS training, validation or official-test
-  results yet.** Small synthetic contract tests check implementation behavior;
-  they do not establish APS accuracy, cost, or generalization.
+- **Phase 1 development has completed; official test pending.** The run below
+  records actual APS validation results. Validation was used to choose the
+  threshold, so these results are not independent final-test estimates.
 - The existing `xgboost_aps_model.pkl`, processed arrays, figures and time-series
   outputs are legacy artifacts. They are not results of the new Phase 1 run.
 - RCA scores, SHAP explanations, clusters and correlation graphs are exploratory
   associations or model explanations. They do not establish a definite physical
   root cause. Synthetic demonstrations do not establish cross-domain or
   real-world generalization.
+
+## Recorded Phase 1 validation result
+
+Run: `aps-develop-20260927T135520Z-a6474c`, trained from commit
+`235a57409ef9a6dd8fa8e2cfe60e52f03639b250`.
+The [development summary](results/phase1/aps-develop-20260927T135520Z-a6474c/development.json)
+contains the actual settings, metrics, input hash and runtime versions.
+
+| Split | Rows × features | Negative | Positive |
+|---|---|---:|---:|
+| Training | 48,000 × 170 | 47,200 | 800 |
+| Validation | 12,000 × 170 | 11,800 | 200 |
+
+The saved median imputer was fitted only on training rows. The new XGBoost uses
+300 trees, maximum depth 6, learning rate 0.05 and seed 42. On the saved validation
+threshold grid (0 to 1 inclusive, step 0.001), **0.01 is the unique minimum-cost
+threshold**, using `probability >= threshold` and cost `10*FP + 500*FN`.
+
+| Validation metric | Selected threshold 0.01 | Reference threshold 0.5 |
+|---|---:|---:|
+| TN | 11,500 | 11,781 |
+| FP | 300 | 19 |
+| FN | 5 | 50 |
+| TP | 195 | 150 |
+| Accuracy | 0.974583 | 0.994250 |
+| Precision (positive class) | 0.393939 | 0.887574 |
+| Recall (positive class) | 0.975000 | 0.750000 |
+| F1 (positive class) | 0.561151 | 0.813008 |
+| Total cost | 5,500 | 25,190 |
+
+Validation ROC-AUC is 0.994319 and average precision is 0.907272; both are computed
+from probabilities and do not depend on the classification threshold. Values
+above are rounded where appropriate; the JSON retains full precision.
+
+**Status at this validation checkpoint: official test pending.** No official-test
+result is included in this checkpoint. These validation results do not establish
+causality or confirmed generalization, and the legacy RCA outputs are separate.
 
 ## Phase 1 environment and checks
 
@@ -41,8 +78,8 @@ full APS datasets. Test outputs live in temporary directories and are removed.
 
 ## New Phase 1 protocol
 
-`main_phase1.py` has two explicit stages. The following commands are for a future
-APS experiment; their presence here does not mean that experiment has been run:
+`main_phase1.py` has two explicit stages. The following commands illustrate the
+workflow for a fresh run; the recorded run's completed stage is documented above:
 
 ```sh
 .venv/bin/python main_phase1.py develop --run-id YOUR_RUN_ID
