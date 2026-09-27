@@ -162,6 +162,15 @@ before any future commit and do not force-add ignored artifacts.
 
 ## Legacy RCA: current inputs and interpretation
 
+The [first RCA audit milestone](results/rca/README.md) checks raw feature quality
+on the saved Phase 1 training split without model execution or official-test
+access. It finds that position `f_89` maps to `cd_000` in the verified Phase 1
+schema: all 47,455 observed training values equal 1,209,600, with 545 missing
+values. Nevertheless, the existing legacy Copula score column `f_89` ranks first
+by mean. This is a diagnostic inconsistency requiring investigation, not a
+physical root-cause finding; legacy array order and preprocessing provenance
+remain limitations. The RCA algorithms have not been changed by this audit.
+
 The legacy scripts have **not** been migrated to the new run directories:
 
 - `rca_pipeline.py` reads `data/processed/X_clean.npy`, `y_clean.npy` and existing
