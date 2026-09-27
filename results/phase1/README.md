@@ -1,7 +1,52 @@
 # Phase 1 reproducible baseline
 
-No APS experiment has been run by this implementation change. This directory
-contains documentation only until an actual run generates its summaries.
+The completed run is `aps-develop-20260927T135520Z-a6474c`. Its
+[development summary](aps-develop-20260927T135520Z-a6474c/development.json) records validation
+selection; its test summary records the subsequent official APS evaluation.
+
+## Completed official APS test evaluation
+
+Run: `aps-develop-20260927T135520Z-a6474c`. **Official APS test evaluation completed.**
+The [test summary](aps-develop-20260927T135520Z-a6474c/test.json) is the source of truth;
+values below are rounded only for display. The official test contains 16,000
+rows and 170 features, with 15,625 negative and 375 positive labels.
+
+Validation results and the selected threshold were committed in
+`eb924e713e6bf8a99538ed0e8ab80fa0bd6ae7fe` before the test was run. That checkpoint
+was committed at 2026-09-27 14:01:03 UTC; the saved test provenance records a
+start at 14:01:26 UTC. The test reloaded the saved model, train-fitted imputer and
+validation-selected threshold of 0.01, with no refitting or threshold selection
+on test. The 0.5 result is a reference comparison, not a new threshold choice.
+
+| Official APS test metric | Validation-selected threshold 0.01 | Reference threshold 0.5 |
+|---|---:|---:|
+| TN | 15,271 | 15,609 |
+| FP | 354 | 16 |
+| FN | 16 | 92 |
+| TP | 359 | 283 |
+| Accuracy | 0.976875 | 0.993250 |
+| Precision (positive class) | 0.503506 | 0.946488 |
+| Recall (positive class) | 0.957333 | 0.754667 |
+| F1 (positive class) | 0.659926 | 0.839763 |
+| Total cost | 11,540 | 46,160 |
+
+Cost is `10 × FP + 500 × FN`. Relative to the 0.5 reference, the selected
+threshold reduces test cost by **75%**, with **76 fewer missed failures**
+and **338 additional false alarms**. Higher recall comes with lower precision
+and F1; this threshold was selected for the stated asymmetric cost, not F1.
+Test ROC-AUC is **0.995342** and average precision is **0.928104**;
+these probability-based metrics are the same for both threshold comparisons.
+
+This is a **fixed-threshold failure-detection result**. It does not establish
+physical root causes or validate the legacy RCA workflow.
+
+**Historical test-use limitation:** Earlier `scania_project` scripts used the same official APS test file. We can
+document a one-time evaluation under this new protocol, but cannot claim the
+test set was untouched throughout the entire history of the project.
+
+## Protocol for a fresh run
+
+The commands below describe a fresh run. Do not rerun the completed run's test.
 
 From the project root, use the `.venv/` environment described in the main README
 and pinned from its installed versions in `requirements-phase1.lock.txt`:

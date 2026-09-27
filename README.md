@@ -6,9 +6,10 @@ separate artifacts and should not be treated as one validated experiment.
 
 ## Current evidence and scope
 
-- **Phase 1 development has completed; official test pending.** The run below
-  records actual APS validation results. Validation was used to choose the
-  threshold, so these results are not independent final-test estimates.
+- **Phase 1 development and official APS test evaluation are complete.** The
+  validation-selected threshold was committed before the test was run. The test
+  result below is a fixed-threshold failure-detection evaluation; validation
+  metrics remain selection results, not independent final-test estimates.
 - The existing `xgboost_aps_model.pkl`, processed arrays, figures and time-series
   outputs are legacy artifacts. They are not results of the new Phase 1 run.
 - RCA scores, SHAP explanations, clusters and correlation graphs are exploratory
@@ -49,9 +50,45 @@ Validation ROC-AUC is 0.994319 and average precision is 0.907272; both are compu
 from probabilities and do not depend on the classification threshold. Values
 above are rounded where appropriate; the JSON retains full precision.
 
-**Status at this validation checkpoint: official test pending.** No official-test
-result is included in this checkpoint. These validation results do not establish
-causality or confirmed generalization, and the legacy RCA outputs are separate.
+## Completed official APS test evaluation
+
+Run: `aps-develop-20260927T135520Z-a6474c`. **Official APS test evaluation completed.**
+The [test summary](results/phase1/aps-develop-20260927T135520Z-a6474c/test.json) is the source of truth;
+values below are rounded only for display. The official test contains 16,000
+rows and 170 features, with 15,625 negative and 375 positive labels.
+
+Validation results and the selected threshold were committed in
+`eb924e713e6bf8a99538ed0e8ab80fa0bd6ae7fe` before the test was run. That checkpoint
+was committed at 2026-09-27 14:01:03 UTC; the saved test provenance records a
+start at 14:01:26 UTC. The test reloaded the saved model, train-fitted imputer and
+validation-selected threshold of 0.01, with no refitting or threshold selection
+on test. The 0.5 result is a reference comparison, not a new threshold choice.
+
+| Official APS test metric | Validation-selected threshold 0.01 | Reference threshold 0.5 |
+|---|---:|---:|
+| TN | 15,271 | 15,609 |
+| FP | 354 | 16 |
+| FN | 16 | 92 |
+| TP | 359 | 283 |
+| Accuracy | 0.976875 | 0.993250 |
+| Precision (positive class) | 0.503506 | 0.946488 |
+| Recall (positive class) | 0.957333 | 0.754667 |
+| F1 (positive class) | 0.659926 | 0.839763 |
+| Total cost | 11,540 | 46,160 |
+
+Cost is `10 × FP + 500 × FN`. Relative to the 0.5 reference, the selected
+threshold reduces test cost by **75%**, with **76 fewer missed failures**
+and **338 additional false alarms**. Higher recall comes with lower precision
+and F1; this threshold was selected for the stated asymmetric cost, not F1.
+Test ROC-AUC is **0.995342** and average precision is **0.928104**;
+these probability-based metrics are the same for both threshold comparisons.
+
+This is a **fixed-threshold failure-detection result**. It does not establish
+physical root causes or validate the legacy RCA workflow.
+
+**Historical test-use limitation:** Earlier `scania_project` scripts used the same official APS test file. We can
+document a one-time evaluation under this new protocol, but cannot claim the
+test set was untouched throughout the entire history of the project.
 
 ## Phase 1 environment and checks
 
@@ -79,7 +116,7 @@ full APS datasets. Test outputs live in temporary directories and are removed.
 ## New Phase 1 protocol
 
 `main_phase1.py` has two explicit stages. The following commands illustrate the
-workflow for a fresh run; the recorded run's completed stage is documented above:
+workflow for a fresh run; the recorded run's completed stages are documented above:
 
 ```sh
 .venv/bin/python main_phase1.py develop --run-id YOUR_RUN_ID

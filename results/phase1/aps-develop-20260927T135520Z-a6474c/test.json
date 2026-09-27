@@ -1,0 +1,164 @@
+{
+  "data": {
+    "label_counts": {
+      "0": 15625,
+      "1": 375
+    },
+    "shape": [
+      16000,
+      170
+    ]
+  },
+  "development_manifest_sha256": "c50c6bad348cd6eace95cec8bc1508a53f9780cb0a8e3557cb8c48f9b4f1aa74",
+  "metrics": {
+    "reference_0.5": {
+      "FN": 92,
+      "FP": 16,
+      "TN": 15609,
+      "TP": 283,
+      "accuracy": 0.99325,
+      "average_precision": 0.9281040973482813,
+      "classification_report": {
+        "0": {
+          "f1-score": 0.9965523846006512,
+          "precision": 0.994140500605057,
+          "recall": 0.998976,
+          "support": 15625.0
+        },
+        "1": {
+          "f1-score": 0.8397626112759644,
+          "precision": 0.9464882943143813,
+          "recall": 0.7546666666666667,
+          "support": 375.0
+        },
+        "accuracy": 0.99325,
+        "macro avg": {
+          "f1-score": 0.9181574979383078,
+          "precision": 0.9703143974597191,
+          "recall": 0.8768213333333333,
+          "support": 16000.0
+        },
+        "weighted avg": {
+          "f1-score": 0.9928776242883539,
+          "precision": 0.9930236520201192,
+          "recall": 0.99325,
+          "support": 16000.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          15609,
+          16
+        ],
+        [
+          92,
+          283
+        ]
+      ],
+      "cost": 46160,
+      "f1": 0.8397626112759644,
+      "precision": 0.9464882943143813,
+      "recall": 0.7546666666666667,
+      "roc_auc": 0.9953418239999999
+    },
+    "selected": {
+      "FN": 16,
+      "FP": 354,
+      "TN": 15271,
+      "TP": 359,
+      "accuracy": 0.976875,
+      "average_precision": 0.9281040973482813,
+      "classification_report": {
+        "0": {
+          "f1-score": 0.9880305383022774,
+          "precision": 0.9989533590632563,
+          "recall": 0.977344,
+          "support": 15625.0
+        },
+        "1": {
+          "f1-score": 0.6599264705882353,
+          "precision": 0.5035063113604488,
+          "recall": 0.9573333333333334,
+          "support": 375.0
+        },
+        "accuracy": 0.976875,
+        "macro avg": {
+          "f1-score": 0.8239785044452563,
+          "precision": 0.7512298352118525,
+          "recall": 0.9673386666666667,
+          "support": 16000.0
+        },
+        "weighted avg": {
+          "f1-score": 0.9803405992152294,
+          "precision": 0.9873413188827218,
+          "recall": 0.976875,
+          "support": 16000.0
+        }
+      },
+      "confusion_matrix": [
+        [
+          15271,
+          354
+        ],
+        [
+          16,
+          359
+        ]
+      ],
+      "cost": 11540,
+      "f1": 0.6599264705882353,
+      "precision": 0.5035063113604488,
+      "recall": 0.9573333333333334,
+      "roc_auc": 0.9953418239999999
+    },
+    "selected_threshold": 0.01
+  },
+  "prediction_sha256": "45ca58f0cb2170af57aed57a4d100ff5b94443edbfd74289bca6092ce6814418",
+  "provenance": {
+    "environment": {
+      "packages": {
+        "joblib": "1.6.0",
+        "numpy": "2.5.3",
+        "pandas": "3.0.6",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.18.1",
+        "threadpoolctl": "3.7.0",
+        "xgboost": "3.4.1"
+      },
+      "python": "3.13.13"
+    },
+    "git_commit": "eb924e713e6bf8a99538ed0e8ab80fa0bd6ae7fe",
+    "source_sha256": {
+      "main_phase1.py": "71f6aa533b7eaa6609a3d543a4b34dc9ad2d40f6b739061a5178306cddef8326",
+      "src/__init__.py": "1c307dd70b888164918528e960919f69bfd42d727141810f4807c23d2e3bec44",
+      "src/anomalies.py": "655ac347e307f00644c73e0f090cf3de479c7d518270bb3a4d2818b25084038a",
+      "src/config.py": "b3ea6084d94ab1b10ae3736fa644bcde4fa8141a55e96f59f0ce2fb620609e53",
+      "src/data_loading.py": "280fb3eb3371677fed2487f1148f0c37782c5576384a557ccf54b9f50477f9c5",
+      "src/evaluation.py": "9b9a90bcd4492a945020c7947eea85224443b44e8a4e8e18c2a1b66277c90228",
+      "src/modeling.py": "768c5ab8a7c11ff688380d32fc020066e5adb925193cccd67685b1b284b86c5a",
+      "src/phase1_artifacts.py": "11e87685c0a39055435ff4cd0a392b2104191058e4b6085f5e4979bed96d8bab",
+      "src/preprocessing.py": "e7d64c9e2561adf904475fe13c98f21345ced56b04bd0556df1b4985b49c0c10",
+      "src/utils.py": "5616b59edacce3e867a81efef15a9657506e9d3409812e9134c6834b9f93da1f"
+    },
+    "utc": "2026-09-27T14:01:26.756766+00:00"
+  },
+  "run_id": "aps-develop-20260927T135520Z-a6474c",
+  "stage": "official_test",
+  "test_input": {
+    "bytes": 11942686,
+    "sha256": "d02335a04b3db9bdad06a617afcd607660b10cd2d6c63628831206af05149251"
+  },
+  "threshold": {
+    "comparison": ">=",
+    "fn_cost": 500,
+    "fp_cost": 10,
+    "grid": {
+      "start": 0.0,
+      "steps": 1000,
+      "stop": 1.0
+    },
+    "selected_on": "validation",
+    "tie_break": "smallest_threshold",
+    "value": 0.01
+  }
+}
