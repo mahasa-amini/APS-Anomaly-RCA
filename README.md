@@ -1,191 +1,116 @@
-# Root Cause Analysis Engine for Multivariate Industrial Systems
-
-## Abstract
-
-This project proposes a multi-layer Root Cause Analysis (RCA) framework for highly imbalanced industrial anomaly detection scenarios such as the APS dataset.
-
-Unlike traditional anomaly detection systems that provide only binary failure predictions, this framework decomposes failure states across three analytical layers:
-
-1. Structural dependency disruption
-2. Feature-level contribution attribution
-3. Failure archetype discovery
-4. Graph-level system topology shifts
-
-The proposed architecture integrates generative modeling, discriminative modeling, explainability methods, unsupervised learning, and graph comparison into a unified and modular RCA engine.
-
----
-
-## Problem Statement
-
-Industrial systems generate high-dimensional multivariate sensor data.  
-While anomaly detection models can classify failure events, they fail to answer critical interpretability questions:
-
-- Which sensors structurally contributed to the failure?
-- Did inter-sensor dependencies break?
-- Are there multiple latent failure modes?
-- Does the system topology change during failure states?
-
-This project addresses the interpretability gap between anomaly detection and root cause reasoning.
-
----
-
-# Methodology
-
-The RCA engine is structured into three layers, each capturing failure dynamics at a different scale.
-
----
-
-## Layer 1 — Dependency-Based Structural Analysis (Gaussian Copula)
-
-We model the joint dependency structure of healthy system behavior using a Gaussian Copula.
-
-**Key Idea:**  
-Failures are not merely marginal feature deviations but structural dependency disruptions.
-
-### Procedure
-
-1. Fit Copula on healthy samples.
-2. Estimate likelihood deviation for anomaly samples.
-3. Decompose structural breakdown into feature-level contributions.
-4. Rank features based on dependency disruption magnitude.
-
-This layer captures multivariate structural shifts beyond independent feature deviations.
-
----
-
-## Layer 2 — SHAP-Based Failure Archetype Discovery
-
-Anomalies are not homogeneous. We cluster them based on explanation vectors.
-
-### Procedure
-
-1. Train classifier (XGBoost / RandomForest).
-2. Compute SHAP explanations for anomaly samples.
-3. Embed SHAP vectors via UMAP or PCA.
-4. Perform clustering (KMeans / HDBSCAN).
-5. Characterize clusters using top SHAP + Copula features.
-
-This layer reveals latent failure archetypes within the anomaly class.
-
----
-
-## Layer 3 — Graph-Level Dependency Shift Analysis
-
-We compare dependency graphs between healthy and failure states.
-
-### Procedure
-
-1. Select relevant features (Copula + SHAP ranking).
-2. Learn correlation-based dependency graph (healthy).
-3. Learn graph (failure).
-4. Detect edge-level structural shifts:
-   - Emergent edges
-   - Disappeared edges
-   - Weight perturbations
-
-This provides system-level causal interpretation.
-
----
-
-# Synthetic Cross-Domain Validation
-
-To demonstrate generalizability, a synthetic multivariate industrial time-series dataset was generated:
-
-- 170 correlated sensors
-- Sinusoidal base signals
-- Stochastic noise
-- Controlled failure injection:
-  - Noise explosion
-  - Drift
-  - Dependency breakdown
-  - Offset jump
-
-Failure ratio ≈ 2% to match APS imbalance.
-
-Time-series were transformed into tabular format via sliding window feature extraction.
-
-This validates cross-domain robustness of the RCA engine.
-
----
-
-# Contributions
-
-1. Dependency-driven root cause modeling
-2. Archetype discovery via explanation clustering
-3. Multi-scale failure interpretation
-4. Cross-domain generalization (tabular & time-series)
-5. Imbalance-aware design
-6. Modular research-oriented architecture
-
----
-
-# Methodological Positioning
-
-The framework integrates:
-
-- Generative modeling (Gaussian Copula)
-- Discriminative modeling (XGBoost / RandomForest)
-- Explainability (SHAP)
-- Manifold learning (UMAP / PCA)
-- Unsupervised clustering
-- Graph-based structural comparison
-
-The layered design enables multi-resolution root cause interpretation.
-
----
-
-# Tech Stack
-
-- Python 3.10+
-- NumPy / Pandas
-- Scikit-learn
-- XGBoost
-- SHAP
-- UMAP
-- NetworkX
-- Matplotlib
-
----
-
-# Reproducibility
-
-All experiments use a fixed random seed (42).  
-The architecture is modular and reproducible under consistent environment settings.
-
----
-
-# Limitations
-
-- Correlation-based graph learning does not imply true causality.
-- Gaussian Copula assumes elliptical dependency structure.
-- Static analysis does not capture temporal causal dynamics.
-
----
-
-# Future Research Directions
-
-- Non-linear causal discovery (NOTEARS / LiNGAM)
-- Temporal causal modeling
-- Online adaptive RCA
-- Information-theoretic dependency modeling
-- Streaming anomaly interpretability
-
----
-
-# Conclusion
-
-This project elevates anomaly detection into a structured, interpretability-driven Root Cause Analysis framework.
-
-It bridges:
-
-- Statistical dependency modeling
-- Model explanation
-- Unsupervised structure discovery
-- Graph-level reasoning
-
-The architecture is suitable for industrial monitoring, cyber-physical systems, IoT platforms, and predictive maintenance research.
-
----
-
-Author: Mahasa Amini  
-Project: APS RCA Engine  
+# APS Failure Detection Baseline and Exploratory RCA
+
+This repository contains a new reproducible Phase 1 failure-detection workflow
+and an older exploratory root cause analysis (RCA) workflow. They currently use
+separate artifacts and should not be treated as one validated experiment.
+
+## Current evidence and scope
+
+- **The new Phase 1 workflow has no full APS training, validation or official-test
+  results yet.** Small synthetic contract tests check implementation behavior;
+  they do not establish APS accuracy, cost, or generalization.
+- The existing `xgboost_aps_model.pkl`, processed arrays, figures and time-series
+  outputs are legacy artifacts. They are not results of the new Phase 1 run.
+- RCA scores, SHAP explanations, clusters and correlation graphs are exploratory
+  associations or model explanations. They do not establish a definite physical
+  root cause. Synthetic demonstrations do not establish cross-domain or
+  real-world generalization.
+
+## Phase 1 environment and checks
+
+The project environment is `.venv/`, which is ignored by Git. The tested package
+versions are recorded in `requirements-phase1.lock.txt`, taken from the installed
+project environment, rather than inferred from the old model. Use Python 3.13
+for this environment. This dependency set covers Phase 1, not the legacy RCA
+stack (SHAP, plotting and other optional libraries).
+
+To recreate the environment:
+
+```sh
+python3.13 -m venv .venv
+.venv/bin/python -m pip install -r requirements-phase1.lock.txt
+.venv/bin/python -m pip check
+.venv/bin/python -B -m unittest discover -s tests -v
+```
+
+The suite includes `test_real_xgboost_small_roundtrip`: it trains a fresh
+XGBoost on a small synthetic training split, saves and reloads artifacts, and
+predicts on a separate synthetic test set. Confirm that this test runs rather
+than being skipped before an APS experiment. No test in this suite reads the
+full APS datasets. Test outputs live in temporary directories and are removed.
+
+## New Phase 1 protocol
+
+`main_phase1.py` has two explicit stages. The following commands are for a future
+APS experiment; their presence here does not mean that experiment has been run:
+
+```sh
+.venv/bin/python main_phase1.py develop --run-id YOUR_RUN_ID
+# Freeze and review development artifacts before the final test:
+.venv/bin/python main_phase1.py test --run-id YOUR_RUN_ID
+```
+
+Development reads only `data/raw/aps_failure_training_set.csv`. It converts
+labels and numeric features, then splits rows 80/20 with stratification and seed
+42. Median imputation is fitted only on the training split. A new XGBoost is
+trained with the explicit settings in `src/config.py`; the old pickle is neither
+loaded nor overwritten.
+
+The threshold is selected only on validation, minimizing `10*FP + 500*FN` on
+0.000–1.000 in steps of 0.001, with `probability >= threshold` and the smallest
+threshold on cost ties. Validation metrics are used for selection and are not
+an independent final estimate. The model is not refitted on train+validation.
+
+The separate test stage reads `data/raw/aps_failure_test_set.csv`, verifies and
+reloads the same run's saved model, imputer, feature order and threshold, and
+only transforms and predicts. It performs no fitting or threshold selection.
+It reserves a single test attempt and refuses repeated attempts, including
+retries after failure. It adds separate test outputs without changing the
+development files. See [the Phase 1 protocol](results/phase1/README.md) for details.
+
+## Artifacts and public summaries
+
+- `artifacts/phase1/<run_id>/` (ignored): model, fitted imputer, split indices,
+  feature names, predictions, threshold sweep, metrics, dependency pins and full
+  local provenance, including paths, executable, command and Git working state.
+- `results/phase1/<run_id>/` (eligible for Git): compact JSON summaries generated
+  only from actual runs. Public provenance contains UTC time, commit ID,
+  repository-relative source hashes, Python and package versions. Personal
+  paths, executable, command, working-tree status and machine platform details
+  are excluded. Test input is represented by size and hash, not its local path.
+- `requirements-phase1.lock.txt`: actual installed environment pins. Each future
+  experiment also records its own runtime versions and source/input hashes.
+
+Seeds and pinned versions help reproduction within a controlled environment;
+bit-identical outputs across different platforms are not guaranteed. Raw data,
+models, legacy outputs and `.venv/` are ignored. Review the staged file list
+before any future commit and do not force-add ignored artifacts.
+
+## Legacy RCA: current inputs and interpretation
+
+The legacy scripts have **not** been migrated to the new run directories:
+
+- `rca_pipeline.py` reads `data/processed/X_clean.npy`, `y_clean.npy` and existing
+  SHAP arrays; it computes copula scores and clusters explanations.
+- `scripts/generate_shap_anomalies.py` reads those processed arrays and loads
+  `xgboost_aps_model.pkl` for SHAP. It selects ground-truth positive rows; these
+  are not automatically the errors or predictions of the new Phase 1 model.
+- `main_phase3.py` consumes existing SHAP and copula outputs.
+  `main_phase3_causal.py` reads the legacy processed arrays and feature rankings
+  to compare correlation-based graphs.
+- `rca_pipeline_ts.py` and the synthetic-data scripts form a separate exploratory
+  time-series workflow, not official APS test evaluation.
+
+Consequently, a new Phase 1 run does not update the legacy `X_clean.npy`, model,
+or downstream RCA outputs. The old arrays' preprocessing provenance and the
+old model's training provenance are not fully established. Legacy results must
+not be attributed to the new leakage-controlled baseline.
+
+SHAP explains a model's predictions, copula scores describe departures from a
+fitted dependency model, and correlation edges describe statistical association.
+None alone identifies a definite causal mechanism. Claims of causal discovery,
+validated failure archetypes, industrial readiness or confirmed generalization
+require additional independent evidence. Integration of RCA with the new
+artifacts and independent evaluation remains future work.
+
+Author: Mahasa Amini

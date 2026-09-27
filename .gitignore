@@ -19,3 +19,13 @@ data/processed/
 figures/
 figures_interactive/
 
+
+# Phase 1 inputs and artifacts; results/ summaries stay visible
+/data/
+/artifacts/
+*.npz
+*.joblib
+*.ubj
+*.model
+.pytest_cache/
+/.venv/
