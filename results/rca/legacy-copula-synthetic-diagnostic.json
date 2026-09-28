@@ -1,0 +1,134 @@
+{
+  "scope": "Synthetic analyzer fits only; APS context comes only from the saved aggregate feature-quality summary.",
+  "versions": {
+    "numpy": "2.5.3",
+    "pandas": "3.0.6",
+    "scipy": "1.18.1",
+    "scikit-learn": "1.9.1"
+  },
+  "source_sha256": {
+    "scripts/diagnose_legacy_copula.py": "6e6db0b3aa6bf08fd081a7acdf5c6d885b16fb61c8af45712c8e5f56265df30e",
+    "src/step3/rca_engine/copula_dependency.py": "901493f06aee2394dc58c941830c0895eedb420fbab31f156da9cf541f75286e",
+    "results/rca/aps-develop-20260927T135520Z-a6474c-feature-quality.json": "c4655658bd7e5146d204556dade4efd86bb866e96440cc3773daf8ef9b7675ed"
+  },
+  "constant_feature": {
+    "seed": 42,
+    "healthy_shape": [
+      256,
+      3
+    ],
+    "observation_shape": [
+      3,
+      3
+    ],
+    "constant_raw_value": 1209600.0,
+    "constant_raw_unique": 1,
+    "regularization_eps": 0.001,
+    "transformed_constant": [
+      -5.199337582605575,
+      -5.199337582605575,
+      -5.199337582605575
+    ],
+    "healthy_transformed_constant_mean": -5.199337582605575,
+    "healthy_transformed_constant_variance": 0.0,
+    "constant_covariance_diagonal": 0.001,
+    "constant_precision_diagonal": 1000.0,
+    "constant_attribution": [
+      13516.555648947393,
+      13516.555648947393,
+      13516.555648947393
+    ],
+    "constant_zero_replacement_analytic": [
+      13516.555648947393,
+      13516.555648947393,
+      13516.555648947393
+    ],
+    "total_negative_log_density": [
+      13516.550323267364,
+      13517.267963662216,
+      13519.145293323714
+    ]
+  },
+  "identity": {
+    "covariance": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "precision": [
+      [
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0
+      ]
+    ],
+    "before": [
+      3.0,
+      0.0
+    ],
+    "after": [
+      0.0,
+      0.0
+    ],
+    "legacy_log_density_before": -6.337877066409345,
+    "legacy_log_density_after": -1.8378770664093453,
+    "legacy_attribution": 4.5,
+    "analytic_marginal_contribution": 4.5,
+    "copula_log_density_before": -0.0,
+    "copula_log_density_after": -0.0,
+    "copula_attribution": 0.0
+  },
+  "aps_summary_context": {
+    "run_id": "aps-develop-20260927T135520Z-a6474c",
+    "training_shape": [
+      48000,
+      170
+    ],
+    "low_cardinality_definition": "At most 10 distinct observed training values (descriptive cutoff).",
+    "low_cardinality": [
+      {
+        "legacy_name": "f_89",
+        "aps_feature": "cd_000",
+        "observed_count": 47455,
+        "observed_unique": 1,
+        "missing_count": 545,
+        "missing_fraction": 0.011354166666666667,
+        "constant_observed": true,
+        "all_missing": false,
+        "eligible_observed_variation": false,
+        "constant_value": 1209600.0
+      },
+      {
+        "legacy_name": "f_93",
+        "aps_feature": "ch_000",
+        "observed_count": 36130,
+        "observed_unique": 2,
+        "missing_count": 11870,
+        "missing_fraction": 0.24729166666666666,
+        "constant_observed": false,
+        "all_missing": false,
+        "eligible_observed_variation": true
+      }
+    ],
+    "features_with_missing_values": 169,
+    "largest_missing_fraction": {
+      "legacy_name": "f_78",
+      "aps_feature": "br_000",
+      "observed_count": 8562,
+      "observed_unique": 3185,
+      "missing_count": 39438,
+      "missing_fraction": 0.821625,
+      "constant_observed": false,
+      "all_missing": false,
+      "eligible_observed_variation": true
+    }
+  }
+}

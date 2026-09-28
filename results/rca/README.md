@@ -1,5 +1,9 @@
 # RCA audit milestone 1: training feature quality
 
+Follow-up: [milestone 2, synthetic legacy Copula diagnostic](legacy-copula-synthetic-diagnostic.md)
+reproduces the constant-feature artifact and separately checks marginal versus
+dependence scoring. It leaves this milestone's summary and the legacy analyzer unchanged.
+
 This audit checks the raw training split of validated Phase 1 run
 `aps-develop-20260927T135520Z-a6474c` before any changes to the RCA algorithms.
 The [aggregate diagnostic](aps-develop-20260927T135520Z-a6474c-feature-quality.json)
@@ -8,11 +12,36 @@ the top ten legacy Copula scores. It contains no sample rows or split indices.
 
 ## Reproduction and boundaries
 
-From the repository root:
+From the repository root, recompute in memory and compare with the existing
+summary. This read-only command works when the committed JSON already exists;
+it does not create or overwrite an output file:
+
+```sh
+.venv/bin/python -B - <<'PY'
+import json
+from pathlib import Path
+from scripts.audit_rca_feature_quality import audit
+
+run_id = "aps-develop-20260927T135520Z-a6474c"
+saved = Path("results/rca") / f"{run_id}-feature-quality.json"
+result = audit(run_id)
+assert result == json.loads(saved.read_text()), "Recomputed audit differs from saved JSON"
+print("In-memory audit matches the existing JSON; no output files written.")
+print(json.dumps(result["focus_f89"], indent=2))
+PY
+```
+
+Initial generation only, when the output JSON does **not** exist (do not run
+this command to reproduce an already recorded audit):
+
+```sh
+.venv/bin/python -B scripts/audit_rca_feature_quality.py --run-id aps-develop-20260927T135520Z-a6474c
+```
+
+The small synthetic feature-quality check can be run separately:
 
 ```sh
 .venv/bin/python -B -m unittest discover -s tests -p test_rca_feature_quality.py -v
-.venv/bin/python -B scripts/audit_rca_feature_quality.py --run-id aps-develop-20260927T135520Z-a6474c
 ```
 
 The script verifies the raw training CSV hash against both the development
@@ -27,11 +56,12 @@ the split; validation feature values are not included in quality statistics.
 The diagnostic does not read the official APS test CSV, load a model or fitted
 imputer, impute values, fit anything, generate predictions or execute the RCA
 pipeline. The optional legacy score CSV is read only to aggregate existing scores.
-The script writes a single compact JSON summary (about 43 KB) to `results/rca/`.
+The initial-generation command writes a single compact JSON summary (about
+43 KB) to `results/rca/`; the in-memory invocation above does not write it.
 There are no large intermediates; any future ones belong under ignored
 `artifacts/`. Output creation is exclusive: an existing summary is not overwritten.
-To recompute in memory without changing a saved summary, call `audit(run_id)`
-from `scripts.audit_rca_feature_quality` in the project environment.
+The equality check includes recorded dependency versions and the diagnostic's
+source hash, so use the recorded environment and unchanged diagnostic code.
 
 Verified training input SHA-256:
 `cbbcc17b812feaff4433b4aac7fb1e94b8a95381e93a29e63069afd20782d5d8`.
