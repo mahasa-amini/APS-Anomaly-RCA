@@ -4,6 +4,13 @@ Follow-up: [milestone 2, synthetic legacy Copula diagnostic](legacy-copula-synth
 reproduces the constant-feature artifact and separately checks marginal versus
 dependence scoring. It leaves this milestone's summary and the legacy analyzer unchanged.
 
+The separate [synthetic feature-localization benchmark](synthetic-marginal-localization-v1.md)
+evaluates recovery of known single-feature injections in synthetic independent
+Gaussian data. Unlike the two legacy RCA audit milestones, it benchmarks an
+independent marginal-deviation baseline, without using the legacy analyzer or
+APS data. It does not model dependencies, validate APS root causes, or establish
+physical causality.
+
 This audit checks the raw training split of validated Phase 1 run
 `aps-develop-20260927T135520Z-a6474c` before any changes to the RCA algorithms.
 The [aggregate diagnostic](aps-develop-20260927T135520Z-a6474c-feature-quality.json)

@@ -160,6 +160,13 @@ bit-identical outputs across different platforms are not guaranteed. Raw data,
 models, legacy outputs and `.venv/` are ignored. Review the staged file list
 before any future commit and do not force-add ignored artifacts.
 
+## Synthetic feature-localization benchmark
+
+The separate [synthetic feature-localization benchmark](results/rca/synthetic-marginal-localization-v1.md)
+evaluates recovery of known single-feature injections in synthetic independent
+Gaussian data. Its marginal-deviation baseline does not model dependencies;
+this benchmark does not validate APS root causes or establish physical causality.
+
 ## Legacy RCA: current inputs and interpretation
 
 The [first RCA audit milestone](results/rca/README.md) checks raw feature quality
