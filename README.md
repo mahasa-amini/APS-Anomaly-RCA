@@ -4,6 +4,9 @@ This repository contains a new reproducible Phase 1 failure-detection workflow
 and an older exploratory root cause analysis (RCA) workflow. They currently use
 separate artifacts and should not be treated as one validated experiment.
 
+**Getting the data / Reproduction:** [original APS files, input checks, and
+reproduction levels](docs/data-and-reproduction.md).
+
 ## Current evidence and scope
 
 - **Phase 1 development and official APS test evaluation are complete.** The
