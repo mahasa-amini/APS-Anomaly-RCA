@@ -167,6 +167,11 @@ evaluates recovery of known single-feature injections in synthetic independent
 Gaussian data. Its marginal-deviation baseline does not model dependencies;
 this benchmark does not validate APS root causes or establish physical causality.
 
+The separate [synthetic dependency-change benchmark](results/rca/synthetic-dependency-localization-v1.md)
+evaluates localization of a **known synthetic pair change** under a fixed
+Gaussian protocol. It does not establish an initiating sensor, physical
+causality, or validated APS RCA.
+
 ## Legacy RCA: current inputs and interpretation
 
 The [first RCA audit milestone](results/rca/README.md) checks raw feature quality

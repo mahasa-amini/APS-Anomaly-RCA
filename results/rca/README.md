@@ -11,6 +11,11 @@ independent marginal-deviation baseline, without using the legacy analyzer or
 APS data. It does not model dependencies, validate APS root causes, or establish
 physical causality.
 
+The separate [synthetic dependency-change benchmark](synthetic-dependency-localization-v1.md)
+evaluates localization of a **known synthetic pair change** under a fixed
+Gaussian protocol. It does not establish an initiating sensor, physical
+causality, or validated APS RCA.
+
 This audit checks the raw training split of validated Phase 1 run
 `aps-develop-20260927T135520Z-a6474c` before any changes to the RCA algorithms.
 The [aggregate diagnostic](aps-develop-20260927T135520Z-a6474c-feature-quality.json)

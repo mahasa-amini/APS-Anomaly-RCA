@@ -1,0 +1,2222 @@
+{
+  "aggregates": {
+    "changed_rho_-0.8": {
+      "common_unscorable_targets": 523,
+      "dependence_unscorable_targets": 523,
+      "hidden_affected_pairs": 523,
+      "marginal_unscorable_targets": 523,
+      "methods": {
+        "dependence": {
+          "precision_at_1": {
+            "maximum": 0.6728515625,
+            "mean": 0.66015625,
+            "minimum": 0.6455078125,
+            "sample_std": 0.012487023293500411
+          },
+          "recall_at_2": {
+            "maximum": 0.8291015625,
+            "mean": 0.815234375,
+            "minimum": 0.80859375,
+            "sample_std": 0.008240243402237885
+          },
+          "total_misses_at_1": 1740,
+          "total_misses_at_2": 946
+        },
+        "marginal_max": {
+          "precision_at_1": {
+            "maximum": 0.251953125,
+            "mean": 0.2427734375,
+            "minimum": 0.22265625,
+            "sample_std": 0.012012115720066371
+          },
+          "recall_at_2": {
+            "maximum": 0.4990234375,
+            "mean": 0.4880859375,
+            "minimum": 0.4658203125,
+            "sample_std": 0.013503426576127816
+          },
+          "total_misses_at_1": 3877,
+          "total_misses_at_2": 2621
+        },
+        "random": {
+          "expected_precision_at_1": {
+            "maximum": 0.25480143229166663,
+            "mean": 0.24786783854166666,
+            "minimum": 0.24153645833333331,
+            "sample_std": 0.0047998458051639594
+          },
+          "expected_recall_at_k": {
+            "maximum": 0.5076497395833333,
+            "mean": 0.4945638020833333,
+            "minimum": 0.48307291666666663,
+            "sample_std": 0.008900331311482483
+          },
+          "precision_at_1": {
+            "maximum": 0.2607421875,
+            "mean": 0.2439453125,
+            "minimum": 0.2197265625,
+            "sample_std": 0.01690609927295333
+          },
+          "recall_at_2": {
+            "maximum": 0.517578125,
+            "mean": 0.4916015625,
+            "minimum": 0.46875,
+            "sample_std": 0.019853301865702416
+          },
+          "total_misses_at_1": 3871,
+          "total_misses_at_2": 2603
+        }
+      },
+      "no_eligible_rows": 0,
+      "samples": 5120
+    },
+    "changed_rho_0": {
+      "common_unscorable_targets": 481,
+      "dependence_unscorable_targets": 481,
+      "hidden_affected_pairs": 481,
+      "marginal_unscorable_targets": 481,
+      "methods": {
+        "dependence": {
+          "precision_at_1": {
+            "maximum": 0.5576171875,
+            "mean": 0.5443359375,
+            "minimum": 0.5302734375,
+            "sample_std": 0.010996631453327537
+          },
+          "recall_at_2": {
+            "maximum": 0.7431640625,
+            "mean": 0.7234375,
+            "minimum": 0.705078125,
+            "sample_std": 0.013556291556745316
+          },
+          "total_misses_at_1": 2333,
+          "total_misses_at_2": 1416
+        },
+        "marginal_max": {
+          "precision_at_1": {
+            "maximum": 0.3076171875,
+            "mean": 0.29453125,
+            "minimum": 0.2744140625,
+            "sample_std": 0.014543897805571457
+          },
+          "recall_at_2": {
+            "maximum": 0.5771484375,
+            "mean": 0.558203125,
+            "minimum": 0.5390625,
+            "sample_std": 0.017694385495862008
+          },
+          "total_misses_at_1": 3612,
+          "total_misses_at_2": 2262
+        },
+        "random": {
+          "expected_precision_at_1": {
+            "maximum": 0.2526041666666667,
+            "mean": 0.2508463541666667,
+            "minimum": 0.24910481770833331,
+            "sample_std": 0.0012509808400888705
+          },
+          "expected_recall_at_k": {
+            "maximum": 0.5042317708333334,
+            "mean": 0.5011067708333334,
+            "minimum": 0.49723307291666663,
+            "sample_std": 0.0025924418673021095
+          },
+          "precision_at_1": {
+            "maximum": 0.267578125,
+            "mean": 0.2541015625,
+            "minimum": 0.244140625,
+            "sample_std": 0.008960991989808173
+          },
+          "recall_at_2": {
+            "maximum": 0.509765625,
+            "mean": 0.50390625,
+            "minimum": 0.4990234375,
+            "sample_std": 0.004979511243742954
+          },
+          "total_misses_at_1": 3819,
+          "total_misses_at_2": 2540
+        }
+      },
+      "no_eligible_rows": 0,
+      "samples": 5120
+    }
+  },
+  "benchmark": "synthetic dependency-change pair localization v1",
+  "healthy_control_aggregate": {
+    "dependence": {
+      "maximum": 0.19965167950332224,
+      "mean": 0.1490519943951333,
+      "minimum": 0.10733744637298545,
+      "sample_std": 0.03559591457505497
+    },
+    "marginal_max": {
+      "maximum": 1.6849655813561244,
+      "mean": 1.6195374286506081,
+      "minimum": 1.551654649394937,
+      "sample_std": 0.05437333528570499
+    }
+  },
+  "interpretation": "Localization of a known synthetic pair change; not a unique initiating sensor, physical cause, or validated APS RCA.",
+  "per_seed": [
+    {
+      "feature_order": [
+        "signal_0",
+        "signal_1",
+        "signal_2",
+        "signal_3",
+        "signal_4",
+        "signal_5",
+        "signal_6",
+        "signal_7",
+        "constant",
+        "all_missing"
+      ],
+      "fit_samples": 1024,
+      "fitted": {
+        "complete_pair_counts": [
+          939,
+          928,
+          937,
+          922
+        ],
+        "correlations": [
+          0.8039566029267122,
+          0.7815816365405236,
+          0.8198277556025189,
+          0.7931967462323563
+        ],
+        "feature_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "degenerate_scale",
+          "insufficient_observations"
+        ],
+        "marginal_centers": [
+          -1.9895239270266563,
+          -1.397901824921159,
+          -0.9109682818673548,
+          -0.3647817939203029,
+          0.27259176146161695,
+          0.883565547941105,
+          1.4559834437975574,
+          1.9445270878296248,
+          1209600.0,
+          0.0
+        ],
+        "marginal_scales": [
+          0.5189753393090879,
+          0.7798342607314662,
+          0.8907428033350705,
+          1.1140460602594449,
+          1.4061622201501425,
+          1.7135394476889898,
+          1.6992775098743214,
+          1.768204269229602,
+          1.0,
+          1.0
+        ],
+        "marginal_status": [
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "constant_fit",
+          "all_missing_fit"
+        ],
+        "means": [
+          -1.9835395954966148,
+          -1.395792603489614,
+          -0.8721076354915542,
+          -0.32778178609421715,
+          0.26995221643947276,
+          0.83218359142481,
+          1.4042076784991502,
+          1.939153646871234,
+          1209600.0,
+          0.0
+        ],
+        "pair_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled"
+        ],
+        "scales": [
+          0.5095763010845339,
+          0.737056019714113,
+          0.8825266159108647,
+          1.0935718831320647,
+          1.3806192148323597,
+          1.6449595914709727,
+          1.7386987006632102,
+          1.9113047980952098,
+          1.0,
+          1.0
+        ]
+      },
+      "healthy_control": {
+        "methods": {
+          "dependence": {
+            "eligible_pair_scores": {
+              "count": 923,
+              "maximum": 4.281642497314838,
+              "mean": -0.5043750684966979,
+              "minimum": -4.670824582206566,
+              "quantiles": {
+                "0.5": -0.5147040454836296,
+                "0.95": 0.9164241536864648,
+                "0.99": 2.1143311629679036
+              }
+            },
+            "per_pair": [
+              {
+                "count": 227,
+                "maximum": 4.281642497314838,
+                "mean": -0.4962557977986436,
+                "minimum": -4.29918753973417,
+                "quantiles": {
+                  "0.5": -0.5278231993567862,
+                  "0.95": 1.062982820263003,
+                  "0.99": 2.468929114949108
+                }
+              },
+              {
+                "count": 231,
+                "maximum": 3.391658558620796,
+                "mean": -0.6041365184255915,
+                "minimum": -4.670824582206566,
+                "quantiles": {
+                  "0.5": -0.5400766382146506,
+                  "0.95": 0.4499799642182118,
+                  "0.99": 1.4656857668868384
+                }
+              },
+              {
+                "count": 227,
+                "maximum": 3.57573892212206,
+                "mean": -0.3970724022477863,
+                "minimum": -3.229354205455297,
+                "quantiles": {
+                  "0.5": -0.5056361989627661,
+                  "0.95": 1.2284270800131558,
+                  "0.99": 2.105619064903723
+                }
+              },
+              {
+                "count": 238,
+                "maximum": 2.7649172324507756,
+                "mean": -0.5176350884689117,
+                "minimum": -3.1707158319575646,
+                "quantiles": {
+                  "0.5": -0.49790620960494814,
+                  "0.95": 0.7057478723389952,
+                  "0.99": 1.5888328765919586
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 4.281642497314838,
+              "mean": 0.19965167950332224,
+              "minimum": -1.422655739190475,
+              "quantiles": {
+                "0.5": -0.0653784252789231,
+                "0.95": 1.8207285103150594,
+                "0.99": 3.4744947221963627
+              }
+            }
+          },
+          "marginal_max": {
+            "eligible_pair_scores": {
+              "count": 923,
+              "maximum": 3.534359260588568,
+              "mean": 1.0262139804811732,
+              "minimum": 0.01311819533224607,
+              "quantiles": {
+                "0.5": 0.9172842567276926,
+                "0.95": 2.2414235744196307,
+                "0.99": 2.8175202389134277
+              }
+            },
+            "per_pair": [
+              {
+                "count": 227,
+                "maximum": 3.01414327489783,
+                "mean": 0.9503481628531802,
+                "minimum": 0.01311819533224607,
+                "quantiles": {
+                  "0.5": 0.8517216247024347,
+                  "0.95": 2.0375603035429584,
+                  "0.99": 2.7885387889883795
+                }
+              },
+              {
+                "count": 231,
+                "maximum": 3.534359260588568,
+                "mean": 1.0527791137577764,
+                "minimum": 0.08067037282380361,
+                "quantiles": {
+                  "0.5": 0.9172842567276926,
+                  "0.95": 2.290560872245565,
+                  "0.99": 3.165315083004649
+                }
+              },
+              {
+                "count": 227,
+                "maximum": 3.3795151367750456,
+                "mean": 0.9803830912686573,
+                "minimum": 0.04388277463770937,
+                "quantiles": {
+                  "0.5": 0.9097210536070952,
+                  "0.95": 2.0487864870488126,
+                  "0.99": 2.597342324048497
+                }
+              },
+              {
+                "count": 238,
+                "maximum": 2.821890656248227,
+                "mean": 1.1165022437832741,
+                "minimum": 0.050724958063024704,
+                "quantiles": {
+                  "0.5": 0.9918172146368058,
+                  "0.95": 2.4247006753043547,
+                  "0.99": 2.7987236996737472
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 3.534359260588568,
+              "mean": 1.6640739560424773,
+              "minimum": 0.5663361315441678,
+              "quantiles": {
+                "0.5": 1.5320659552067786,
+                "0.95": 2.7901070018297562,
+                "0.99": 3.2162752596168858
+              }
+            }
+          }
+        },
+        "missing_pair_count": 101,
+        "no_eligible_rows": 0,
+        "samples": 256
+      },
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "scenarios": {
+        "changed_rho_-0.8": {
+          "affected_pair_counts": [
+            262,
+            263,
+            264,
+            235
+          ],
+          "common_unscorable_targets": 92,
+          "dependence_unscorable_targets": 92,
+          "eligible_pair_count_histogram": [
+            0,
+            2,
+            51,
+            292,
+            679
+          ],
+          "hidden_affected_pairs": 92,
+          "marginal_unscorable_targets": 92,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                68,
+                77,
+                96,
+                94
+              ],
+              "k": 2,
+              "misses_at_1": 335,
+              "misses_at_k": 175,
+              "precision_at_1": 0.6728515625,
+              "recall_at_k": 0.8291015625,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                198,
+                187,
+                214,
+                167
+              ],
+              "k": 2,
+              "misses_at_1": 766,
+              "misses_at_k": 515,
+              "precision_at_1": 0.251953125,
+              "recall_at_k": 0.4970703125,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.25480143229166663,
+              "expected_recall_at_k": 0.5076497395833333,
+              "k": 2,
+              "misses_at_1": 757,
+              "misses_at_k": 494,
+              "precision_at_1": 0.2607421875,
+              "recall_at_k": 0.517578125,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        },
+        "changed_rho_0": {
+          "affected_pair_counts": [
+            262,
+            234,
+            266,
+            262
+          ],
+          "common_unscorable_targets": 88,
+          "dependence_unscorable_targets": 88,
+          "eligible_pair_count_histogram": [
+            0,
+            2,
+            46,
+            278,
+            698
+          ],
+          "hidden_affected_pairs": 88,
+          "marginal_unscorable_targets": 88,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                131,
+                103,
+                122,
+                105
+              ],
+              "k": 2,
+              "misses_at_1": 461,
+              "misses_at_k": 283,
+              "precision_at_1": 0.5498046875,
+              "recall_at_k": 0.7236328125,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                198,
+                154,
+                201,
+                163
+              ],
+              "k": 2,
+              "misses_at_1": 716,
+              "misses_at_k": 437,
+              "precision_at_1": 0.30078125,
+              "recall_at_k": 0.5732421875,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.2511393229166667,
+              "expected_recall_at_k": 0.5022786458333334,
+              "k": 2,
+              "misses_at_1": 774,
+              "misses_at_k": 511,
+              "precision_at_1": 0.244140625,
+              "recall_at_k": 0.5009765625,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        }
+      },
+      "seed": 11
+    },
+    {
+      "feature_order": [
+        "signal_0",
+        "signal_1",
+        "signal_2",
+        "signal_3",
+        "signal_4",
+        "signal_5",
+        "signal_6",
+        "signal_7",
+        "constant",
+        "all_missing"
+      ],
+      "fit_samples": 1024,
+      "fitted": {
+        "complete_pair_counts": [
+          919,
+          931,
+          917,
+          941
+        ],
+        "correlations": [
+          0.8074128299832245,
+          0.806858991600276,
+          0.8082402159717544,
+          0.7966832115586583
+        ],
+        "feature_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "degenerate_scale",
+          "insufficient_observations"
+        ],
+        "marginal_centers": [
+          -1.9568781009944594,
+          -1.3872359018537712,
+          -0.8480305855652388,
+          -0.29374831922903744,
+          0.3669786094370556,
+          0.9569101517251033,
+          1.5920670964509709,
+          2.160409859447344,
+          1209600.0,
+          0.0
+        ],
+        "marginal_scales": [
+          0.497546460724152,
+          0.6984756232021216,
+          0.9758135627042273,
+          1.1803546900728887,
+          1.312731926626562,
+          1.5237197582013402,
+          1.6969879433141655,
+          1.9980387998649605,
+          1.0,
+          1.0
+        ],
+        "marginal_status": [
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "constant_fit",
+          "all_missing_fit"
+        ],
+        "means": [
+          -1.978648689789158,
+          -1.4037699494284317,
+          -0.8237484718871192,
+          -0.23234881559279005,
+          0.3289837134819907,
+          0.9325861239800158,
+          1.5207363360480917,
+          2.094176592476232,
+          1209600.0,
+          0.0
+        ],
+        "pair_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled"
+        ],
+        "scales": [
+          0.4912292719700814,
+          0.7026229716772628,
+          0.9586789044768297,
+          1.1805400041245113,
+          1.357747818523487,
+          1.5783514679616923,
+          1.7792100633852719,
+          1.9804462658870743,
+          1.0,
+          1.0
+        ]
+      },
+      "healthy_control": {
+        "methods": {
+          "dependence": {
+            "eligible_pair_scores": {
+              "count": 910,
+              "maximum": 4.630707960949403,
+              "mean": -0.5458788564119962,
+              "minimum": -4.097594870107811,
+              "quantiles": {
+                "0.5": -0.5270687222699804,
+                "0.95": 0.792396628549438,
+                "0.99": 1.8620895815114076
+              }
+            },
+            "per_pair": [
+              {
+                "count": 230,
+                "maximum": 3.201183646302878,
+                "mean": -0.5838763205389343,
+                "minimum": -3.227292990853059,
+                "quantiles": {
+                  "0.5": -0.5339463682150203,
+                  "0.95": 0.8817015033249381,
+                  "0.99": 2.1441234334362287
+                }
+              },
+              {
+                "count": 218,
+                "maximum": 3.8708967990860392,
+                "mean": -0.486990989213937,
+                "minimum": -3.469303650208873,
+                "quantiles": {
+                  "0.5": -0.5213686705022312,
+                  "0.95": 0.9659139436680609,
+                  "0.99": 1.6513495862196033
+                }
+              },
+              {
+                "count": 231,
+                "maximum": 4.630707960949403,
+                "mean": -0.5380559476682869,
+                "minimum": -3.5603199817071567,
+                "quantiles": {
+                  "0.5": -0.5436996684624802,
+                  "0.95": 0.6888569245513526,
+                  "0.99": 2.2078308015748145
+                }
+              },
+              {
+                "count": 231,
+                "maximum": 1.5162552326415306,
+                "mean": -0.5714426235971825,
+                "minimum": -4.097594870107811,
+                "quantiles": {
+                  "0.5": -0.5027924506053363,
+                  "0.95": 0.4209333745871395,
+                  "0.99": 1.4114524923018958
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 4.630707960949403,
+              "mean": 0.15545862197897833,
+              "minimum": -1.4739230035051838,
+              "quantiles": {
+                "0.5": -0.09846276312007246,
+                "0.95": 1.526556542314561,
+                "0.99": 2.9719082406883746
+              }
+            }
+          },
+          "marginal_max": {
+            "eligible_pair_scores": {
+              "count": 910,
+              "maximum": 3.363007262914374,
+              "mean": 1.0717881564339753,
+              "minimum": 0.007066582965705993,
+              "quantiles": {
+                "0.5": 0.9613522699107697,
+                "0.95": 2.235335760958328,
+                "0.99": 2.8856951456110784
+              }
+            },
+            "per_pair": [
+              {
+                "count": 230,
+                "maximum": 3.310135096842017,
+                "mean": 1.130779770599897,
+                "minimum": 0.04359980159909251,
+                "quantiles": {
+                  "0.5": 1.0096615631359516,
+                  "0.95": 2.2841192279713343,
+                  "0.99": 2.9322744982375695
+                }
+              },
+              {
+                "count": 218,
+                "maximum": 3.022202533715792,
+                "mean": 1.0473598992667141,
+                "minimum": 0.06590134607372486,
+                "quantiles": {
+                  "0.5": 0.9109768462735559,
+                  "0.95": 2.375784969200293,
+                  "0.99": 2.8228088105668085
+                }
+              },
+              {
+                "count": 231,
+                "maximum": 3.213679477339616,
+                "mean": 1.0720006396771535,
+                "minimum": 0.007066582965705993,
+                "quantiles": {
+                  "0.5": 1.020602019528543,
+                  "0.95": 2.1486043169187736,
+                  "0.99": 2.6712390650762723
+                }
+              },
+              {
+                "count": 231,
+                "maximum": 3.363007262914374,
+                "mean": 1.035892940741883,
+                "minimum": 0.08585520412415092,
+                "quantiles": {
+                  "0.5": 0.9208672437261564,
+                  "0.95": 2.076053523505061,
+                  "0.99": 2.725857581631826
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 3.363007262914374,
+              "mean": 1.6849655813561244,
+              "minimum": 0.40595589010282335,
+              "quantiles": {
+                "0.5": 1.6918758979300024,
+                "0.95": 2.70465329270064,
+                "0.99": 3.1644779219896653
+              }
+            }
+          }
+        },
+        "missing_pair_count": 114,
+        "no_eligible_rows": 0,
+        "samples": 256
+      },
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "scenarios": {
+        "changed_rho_-0.8": {
+          "affected_pair_counts": [
+            267,
+            270,
+            245,
+            242
+          ],
+          "common_unscorable_targets": 98,
+          "dependence_unscorable_targets": 98,
+          "eligible_pair_count_histogram": [
+            0,
+            5,
+            55,
+            251,
+            713
+          ],
+          "hidden_affected_pairs": 98,
+          "marginal_unscorable_targets": 98,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                85,
+                105,
+                85,
+                85
+              ],
+              "k": 2,
+              "misses_at_1": 360,
+              "misses_at_k": 196,
+              "precision_at_1": 0.6484375,
+              "recall_at_k": 0.80859375,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                209,
+                210,
+                183,
+                175
+              ],
+              "k": 2,
+              "misses_at_1": 777,
+              "misses_at_k": 527,
+              "precision_at_1": 0.2412109375,
+              "recall_at_k": 0.4853515625,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.24926757812499997,
+              "expected_recall_at_k": 0.49658203125,
+              "k": 2,
+              "misses_at_1": 785,
+              "misses_at_k": 523,
+              "precision_at_1": 0.2333984375,
+              "recall_at_k": 0.4892578125,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        },
+        "changed_rho_0": {
+          "affected_pair_counts": [
+            244,
+            268,
+            253,
+            259
+          ],
+          "common_unscorable_targets": 99,
+          "dependence_unscorable_targets": 99,
+          "eligible_pair_count_histogram": [
+            0,
+            0,
+            45,
+            316,
+            663
+          ],
+          "hidden_affected_pairs": 99,
+          "marginal_unscorable_targets": 99,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                106,
+                124,
+                124,
+                121
+              ],
+              "k": 2,
+              "misses_at_1": 475,
+              "misses_at_k": 282,
+              "precision_at_1": 0.5361328125,
+              "recall_at_k": 0.724609375,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                156,
+                201,
+                180,
+                174
+              ],
+              "k": 2,
+              "misses_at_1": 711,
+              "misses_at_k": 472,
+              "precision_at_1": 0.3056640625,
+              "recall_at_k": 0.5390625,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.250732421875,
+              "expected_recall_at_k": 0.50146484375,
+              "k": 2,
+              "misses_at_1": 760,
+              "misses_at_k": 513,
+              "precision_at_1": 0.2578125,
+              "recall_at_k": 0.4990234375,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        }
+      },
+      "seed": 23
+    },
+    {
+      "feature_order": [
+        "signal_0",
+        "signal_1",
+        "signal_2",
+        "signal_3",
+        "signal_4",
+        "signal_5",
+        "signal_6",
+        "signal_7",
+        "constant",
+        "all_missing"
+      ],
+      "fit_samples": 1024,
+      "fitted": {
+        "complete_pair_counts": [
+          917,
+          913,
+          908,
+          928
+        ],
+        "correlations": [
+          0.7943703390104278,
+          0.7958535091008883,
+          0.7816470048809163,
+          0.8072420238600725
+        ],
+        "feature_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "degenerate_scale",
+          "insufficient_observations"
+        ],
+        "marginal_centers": [
+          -2.020980415730982,
+          -1.4645016025808255,
+          -0.8142197334418226,
+          -0.2657427012121849,
+          0.27243725671231445,
+          0.757363025522004,
+          1.5164027500523556,
+          2.006345519276547,
+          1209600.0,
+          0.0
+        ],
+        "marginal_scales": [
+          0.4984776187187084,
+          0.7144406694970725,
+          0.9505206604281968,
+          1.2014454841556474,
+          1.3029429398268748,
+          1.6148729407307145,
+          1.80006132457586,
+          1.9945497025778767,
+          1.0,
+          1.0
+        ],
+        "marginal_status": [
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "constant_fit",
+          "all_missing_fit"
+        ],
+        "means": [
+          -2.0114751469241274,
+          -1.4429834186206794,
+          -0.8346958902734604,
+          -0.25005849762188936,
+          0.23870177946200882,
+          0.791230733113415,
+          1.4810187100621686,
+          2.060876390915429,
+          1209600.0,
+          0.0
+        ],
+        "pair_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled"
+        ],
+        "scales": [
+          0.4934938055706573,
+          0.7050514263414834,
+          0.9466908411486775,
+          1.161615425195725,
+          1.3033548122110288,
+          1.5572852808403825,
+          1.825504104964391,
+          2.009690347476091,
+          1.0,
+          1.0
+        ]
+      },
+      "healthy_control": {
+        "methods": {
+          "dependence": {
+            "eligible_pair_scores": {
+              "count": 910,
+              "maximum": 3.64382754592566,
+              "mean": -0.5082485002726124,
+              "minimum": -4.151810449788078,
+              "quantiles": {
+                "0.5": -0.5017194012252946,
+                "0.95": 0.5952982696342901,
+                "0.99": 1.4635712011594504
+              }
+            },
+            "per_pair": [
+              {
+                "count": 226,
+                "maximum": 3.0451478989901246,
+                "mean": -0.4878652124505534,
+                "minimum": -3.299388213327576,
+                "quantiles": {
+                  "0.5": -0.49951630703720384,
+                  "0.95": 0.5948956724073373,
+                  "0.99": 1.8079703192727878
+                }
+              },
+              {
+                "count": 233,
+                "maximum": 3.64382754592566,
+                "mean": -0.5186573771540149,
+                "minimum": -3.2671854719306874,
+                "quantiles": {
+                  "0.5": -0.5118880897782604,
+                  "0.95": 0.5929164949168191,
+                  "0.99": 1.5425386660692981
+                }
+              },
+              {
+                "count": 230,
+                "maximum": 2.3738786551178124,
+                "mean": -0.4691949100765813,
+                "minimum": -4.151810449788078,
+                "quantiles": {
+                  "0.5": -0.4477412410568946,
+                  "0.95": 0.4731860789944429,
+                  "0.99": 0.9271339116078985
+                }
+              },
+              {
+                "count": 221,
+                "maximum": 3.261278293743398,
+                "mean": -0.5587628915825928,
+                "minimum": -2.924328893299689,
+                "quantiles": {
+                  "0.5": -0.5478666878354992,
+                  "0.95": 0.6224231194320861,
+                  "0.99": 1.3810077780469614
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 3.64382754592566,
+              "mean": 0.10733744637298545,
+              "minimum": -1.479997656834162,
+              "quantiles": {
+                "0.5": -0.04917693613896559,
+                "0.95": 1.3608809512617717,
+                "0.99": 2.8533762884225555
+              }
+            }
+          },
+          "marginal_max": {
+            "eligible_pair_scores": {
+              "count": 910,
+              "maximum": 3.384799008052441,
+              "mean": 0.9966756794225227,
+              "minimum": 0.03630319896027591,
+              "quantiles": {
+                "0.5": 0.9316403908551298,
+                "0.95": 1.9837873716774421,
+                "0.99": 2.5885488838561983
+              }
+            },
+            "per_pair": [
+              {
+                "count": 226,
+                "maximum": 3.2501288870583385,
+                "mean": 1.0101703744282302,
+                "minimum": 0.06359923159347547,
+                "quantiles": {
+                  "0.5": 0.9365833025697362,
+                  "0.95": 1.973274473648536,
+                  "0.99": 2.407798737045103
+                }
+              },
+              {
+                "count": 233,
+                "maximum": 2.571026190898537,
+                "mean": 0.9142461163966442,
+                "minimum": 0.03630319896027591,
+                "quantiles": {
+                  "0.5": 0.8221623382488559,
+                  "0.95": 1.9738582949632124,
+                  "0.99": 2.20414620902836
+                }
+              },
+              {
+                "count": 230,
+                "maximum": 3.384799008052441,
+                "mean": 1.0148078925443906,
+                "minimum": 0.07465385923016649,
+                "quantiles": {
+                  "0.5": 0.9491075814120506,
+                  "0.95": 2.011887968800357,
+                  "0.99": 2.667148090093118
+                }
+              },
+              {
+                "count": 221,
+                "maximum": 2.889054416973389,
+                "mean": 1.0509104219370484,
+                "minimum": 0.09300228501601812,
+                "quantiles": {
+                  "0.5": 0.9825959408753084,
+                  "0.95": 2.232673241149109,
+                  "0.99": 2.6333589465839538
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 3.384799008052441,
+              "mean": 1.551654649394937,
+              "minimum": 0.25183609886938774,
+              "quantiles": {
+                "0.5": 1.5391315603505955,
+                "0.95": 2.443990623021171,
+                "0.99": 2.8631068131195265
+              }
+            }
+          }
+        },
+        "missing_pair_count": 114,
+        "no_eligible_rows": 0,
+        "samples": 256
+      },
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "scenarios": {
+        "changed_rho_-0.8": {
+          "affected_pair_counts": [
+            297,
+            217,
+            273,
+            237
+          ],
+          "common_unscorable_targets": 113,
+          "dependence_unscorable_targets": 113,
+          "eligible_pair_count_histogram": [
+            0,
+            4,
+            37,
+            277,
+            706
+          ],
+          "hidden_affected_pairs": 113,
+          "marginal_unscorable_targets": 113,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                93,
+                76,
+                91,
+                78
+              ],
+              "k": 2,
+              "misses_at_1": 338,
+              "misses_at_k": 191,
+              "precision_at_1": 0.669921875,
+              "recall_at_k": 0.8134765625,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                217,
+                167,
+                198,
+                185
+              ],
+              "k": 2,
+              "misses_at_1": 767,
+              "misses_at_k": 547,
+              "precision_at_1": 0.2509765625,
+              "recall_at_k": 0.4658203125,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.24153645833333331,
+              "expected_recall_at_k": 0.48307291666666663,
+              "k": 2,
+              "misses_at_1": 799,
+              "misses_at_k": 535,
+              "precision_at_1": 0.2197265625,
+              "recall_at_k": 0.4775390625,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        },
+        "changed_rho_0": {
+          "affected_pair_counts": [
+            274,
+            248,
+            244,
+            258
+          ],
+          "common_unscorable_targets": 94,
+          "dependence_unscorable_targets": 94,
+          "eligible_pair_count_histogram": [
+            0,
+            3,
+            41,
+            308,
+            672
+          ],
+          "hidden_affected_pairs": 94,
+          "marginal_unscorable_targets": 94,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                133,
+                110,
+                91,
+                119
+              ],
+              "k": 2,
+              "misses_at_1": 453,
+              "misses_at_k": 263,
+              "precision_at_1": 0.5576171875,
+              "recall_at_k": 0.7431640625,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                195,
+                179,
+                153,
+                182
+              ],
+              "k": 2,
+              "misses_at_1": 709,
+              "misses_at_k": 433,
+              "precision_at_1": 0.3076171875,
+              "recall_at_k": 0.5771484375,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.2526041666666667,
+              "expected_recall_at_k": 0.5042317708333334,
+              "k": 2,
+              "misses_at_1": 767,
+              "misses_at_k": 503,
+              "precision_at_1": 0.2509765625,
+              "recall_at_k": 0.5087890625,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        }
+      },
+      "seed": 37
+    },
+    {
+      "feature_order": [
+        "signal_0",
+        "signal_1",
+        "signal_2",
+        "signal_3",
+        "signal_4",
+        "signal_5",
+        "signal_6",
+        "signal_7",
+        "constant",
+        "all_missing"
+      ],
+      "fit_samples": 1024,
+      "fitted": {
+        "complete_pair_counts": [
+          927,
+          942,
+          938,
+          938
+        ],
+        "correlations": [
+          0.7975580622462325,
+          0.8090311434007261,
+          0.7914893583648489,
+          0.7948167011971942
+        ],
+        "feature_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "degenerate_scale",
+          "insufficient_observations"
+        ],
+        "marginal_centers": [
+          -2.0049403321965906,
+          -1.4064742587343635,
+          -0.9510414160922527,
+          -0.3865216787173924,
+          0.2975834314177687,
+          0.8037226382051553,
+          1.423982760208733,
+          1.971195310334966,
+          1209600.0,
+          0.0
+        ],
+        "marginal_scales": [
+          0.5123779626711363,
+          0.7240540107550236,
+          0.9555001020425093,
+          1.1114338167879834,
+          1.3334494536401456,
+          1.5285834689820221,
+          1.7966721528701575,
+          2.003201364058232,
+          1.0,
+          1.0
+        ],
+        "marginal_status": [
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "constant_fit",
+          "all_missing_fit"
+        ],
+        "means": [
+          -1.9900825281946368,
+          -1.4034277338182741,
+          -0.8984812420973951,
+          -0.3254248532279116,
+          0.25628197809048253,
+          0.8111042384873548,
+          1.4077466421846203,
+          1.9473844815972203,
+          1209600.0,
+          0.0
+        ],
+        "pair_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled"
+        ],
+        "scales": [
+          0.5047406165188816,
+          0.7019604424433642,
+          0.9605738200180957,
+          1.1497981135355144,
+          1.3242706271321083,
+          1.557322983942686,
+          1.7860301049670768,
+          1.978350833064001,
+          1.0,
+          1.0
+        ]
+      },
+      "healthy_control": {
+        "methods": {
+          "dependence": {
+            "eligible_pair_scores": {
+              "count": 925,
+              "maximum": 3.8494143747909852,
+              "mean": -0.48552222191032796,
+              "minimum": -5.626884417257165,
+              "quantiles": {
+                "0.5": -0.48655139594219154,
+                "0.95": 0.6527035861985641,
+                "0.99": 1.9296819777837897
+              }
+            },
+            "per_pair": [
+              {
+                "count": 231,
+                "maximum": 3.8494143747909852,
+                "mean": -0.4704939737373425,
+                "minimum": -3.171828254524346,
+                "quantiles": {
+                  "0.5": -0.4926726958273665,
+                  "0.95": 0.44038762363346534,
+                  "0.99": 2.0025459850951193
+                }
+              },
+              {
+                "count": 230,
+                "maximum": 2.233687389548566,
+                "mean": -0.4433372859016725,
+                "minimum": -5.626884417257165,
+                "quantiles": {
+                  "0.5": -0.4747108019503031,
+                  "0.95": 0.8098650633240617,
+                  "0.99": 1.8315172749220932
+                }
+              },
+              {
+                "count": 230,
+                "maximum": 2.575602673505904,
+                "mean": -0.5460149017082673,
+                "minimum": -4.592378015575813,
+                "quantiles": {
+                  "0.5": -0.505332584517146,
+                  "0.95": 0.6081152155601274,
+                  "0.99": 1.726149025647337
+                }
+              },
+              {
+                "count": 234,
+                "maximum": 2.4552565310280534,
+                "mean": -0.4823630093309447,
+                "minimum": -3.534265007782849,
+                "quantiles": {
+                  "0.5": -0.47249240618073196,
+                  "0.95": 0.6680653684338582,
+                  "0.99": 1.9795230087458957
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 3.8494143747909852,
+              "mean": 0.1588686573735289,
+              "minimum": -3.534265007782849,
+              "quantiles": {
+                "0.5": -0.018128650246176325,
+                "0.95": 1.7323420441264759,
+                "0.99": 2.333393503214333
+              }
+            }
+          },
+          "marginal_max": {
+            "eligible_pair_scores": {
+              "count": 925,
+              "maximum": 3.7460214297656624,
+              "mean": 0.9882914991786628,
+              "minimum": 0.024853032507345798,
+              "quantiles": {
+                "0.5": 0.8712818368719272,
+                "0.95": 2.1862632272121627,
+                "0.99": 2.764269178394284
+              }
+            },
+            "per_pair": [
+              {
+                "count": 231,
+                "maximum": 3.3832349090809144,
+                "mean": 0.9415362619977222,
+                "minimum": 0.03961936751867773,
+                "quantiles": {
+                  "0.5": 0.8577973884807887,
+                  "0.95": 2.05465178920751,
+                  "0.99": 2.5584734056015344
+                }
+              },
+              {
+                "count": 230,
+                "maximum": 3.7460214297656624,
+                "mean": 1.0497953217538434,
+                "minimum": 0.024853032507345798,
+                "quantiles": {
+                  "0.5": 0.9281897507189965,
+                  "0.95": 2.2714940751162946,
+                  "0.99": 2.6769478359480314
+                }
+              },
+              {
+                "count": 230,
+                "maximum": 3.707108201192174,
+                "mean": 1.005791406450503,
+                "minimum": 0.04764480857831516,
+                "quantiles": {
+                  "0.5": 0.8721554952355282,
+                  "0.95": 2.1583799802164205,
+                  "0.99": 3.0497201094513398
+                }
+              },
+              {
+                "count": 234,
+                "maximum": 2.872185161031606,
+                "mean": 0.9567940715033746,
+                "minimum": 0.03772295580525941,
+                "quantiles": {
+                  "0.5": 0.8320982206473369,
+                  "0.95": 2.2087683925622623,
+                  "0.99": 2.711729138561177
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 3.7460214297656624,
+              "mean": 1.6043264873671177,
+              "minimum": 0.36146369922546157,
+              "quantiles": {
+                "0.5": 1.5317789817946001,
+                "0.95": 2.6985747158780975,
+                "0.99": 3.439162095438992
+              }
+            }
+          }
+        },
+        "missing_pair_count": 99,
+        "no_eligible_rows": 0,
+        "samples": 256
+      },
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "scenarios": {
+        "changed_rho_-0.8": {
+          "affected_pair_counts": [
+            247,
+            253,
+            264,
+            260
+          ],
+          "common_unscorable_targets": 113,
+          "dependence_unscorable_targets": 113,
+          "eligible_pair_count_histogram": [
+            0,
+            2,
+            46,
+            321,
+            655
+          ],
+          "hidden_affected_pairs": 113,
+          "marginal_unscorable_targets": 113,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                88,
+                81,
+                92,
+                83
+              ],
+              "k": 2,
+              "misses_at_1": 344,
+              "misses_at_k": 195,
+              "precision_at_1": 0.6640625,
+              "recall_at_k": 0.8095703125,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                189,
+                184,
+                210,
+                188
+              ],
+              "k": 2,
+              "misses_at_1": 771,
+              "misses_at_k": 519,
+              "precision_at_1": 0.2470703125,
+              "recall_at_k": 0.4931640625,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.24698893229166666,
+              "expected_recall_at_k": 0.4939778645833333,
+              "k": 2,
+              "misses_at_1": 766,
+              "misses_at_k": 507,
+              "precision_at_1": 0.251953125,
+              "recall_at_k": 0.5048828125,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        },
+        "changed_rho_0": {
+          "affected_pair_counts": [
+            270,
+            259,
+            250,
+            245
+          ],
+          "common_unscorable_targets": 96,
+          "dependence_unscorable_targets": 96,
+          "eligible_pair_count_histogram": [
+            0,
+            6,
+            48,
+            284,
+            686
+          ],
+          "hidden_affected_pairs": 96,
+          "marginal_unscorable_targets": 96,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                129,
+                123,
+                113,
+                116
+              ],
+              "k": 2,
+              "misses_at_1": 481,
+              "misses_at_k": 302,
+              "precision_at_1": 0.5302734375,
+              "recall_at_k": 0.705078125,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                190,
+                184,
+                183,
+                176
+              ],
+              "k": 2,
+              "misses_at_1": 733,
+              "misses_at_k": 450,
+              "precision_at_1": 0.2841796875,
+              "recall_at_k": 0.560546875,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.2506510416666667,
+              "expected_recall_at_k": 0.5003255208333334,
+              "k": 2,
+              "misses_at_1": 768,
+              "misses_at_k": 511,
+              "precision_at_1": 0.25,
+              "recall_at_k": 0.5009765625,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        }
+      },
+      "seed": 51
+    },
+    {
+      "feature_order": [
+        "signal_0",
+        "signal_1",
+        "signal_2",
+        "signal_3",
+        "signal_4",
+        "signal_5",
+        "signal_6",
+        "signal_7",
+        "constant",
+        "all_missing"
+      ],
+      "fit_samples": 1024,
+      "fitted": {
+        "complete_pair_counts": [
+          919,
+          924,
+          932,
+          908
+        ],
+        "correlations": [
+          0.7971759664696194,
+          0.7881805407390156,
+          0.7938445033429298,
+          0.7845941725035942
+        ],
+        "feature_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled",
+          "degenerate_scale",
+          "insufficient_observations"
+        ],
+        "marginal_centers": [
+          -1.9988641362177717,
+          -1.3769590395983133,
+          -0.8675005447587992,
+          -0.31009097067356095,
+          0.415654953658522,
+          0.9076162356694364,
+          1.5542736483389046,
+          2.119408479329184,
+          1209600.0,
+          0.0
+        ],
+        "marginal_scales": [
+          0.49120121935815564,
+          0.73630906379616,
+          0.9699258991936306,
+          1.1022083045107245,
+          1.3727826630317241,
+          1.5507007121027498,
+          1.690663796086461,
+          2.0448339441307497,
+          1.0,
+          1.0
+        ],
+        "marginal_status": [
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "mad",
+          "constant_fit",
+          "all_missing_fit"
+        ],
+        "means": [
+          -1.9932447798969477,
+          -1.3888941053125798,
+          -0.9008403432317925,
+          -0.30181705359026095,
+          0.38453762739359304,
+          0.964587946699025,
+          1.5684575250004502,
+          2.0911065342433854,
+          1209600.0,
+          0.0
+        ],
+        "pair_status": [
+          "enabled",
+          "enabled",
+          "enabled",
+          "enabled"
+        ],
+        "scales": [
+          0.4962546119851017,
+          0.7243472407467211,
+          0.9478567173157919,
+          1.1655903522492623,
+          1.3612027718599318,
+          1.5727155760740619,
+          1.7749574725540402,
+          2.05948481894557,
+          1.0,
+          1.0
+        ]
+      },
+      "healthy_control": {
+        "methods": {
+          "dependence": {
+            "eligible_pair_scores": {
+              "count": 924,
+              "maximum": 2.640401421274233,
+              "mean": -0.5042382856971277,
+              "minimum": -4.114942029795217,
+              "quantiles": {
+                "0.5": -0.4871519946681582,
+                "0.95": 0.6473518382949343,
+                "0.99": 1.3696569138814758
+              }
+            },
+            "per_pair": [
+              {
+                "count": 230,
+                "maximum": 2.167521511633996,
+                "mean": -0.44333142171046525,
+                "minimum": -3.494397747181459,
+                "quantiles": {
+                  "0.5": -0.49914973630213333,
+                  "0.95": 0.8053824867714581,
+                  "0.99": 1.5227342402158806
+                }
+              },
+              {
+                "count": 232,
+                "maximum": 1.3078501824872637,
+                "mean": -0.5059865713614544,
+                "minimum": -3.2259429753864013,
+                "quantiles": {
+                  "0.5": -0.4914693202363771,
+                  "0.95": 0.4666021781141849,
+                  "0.99": 1.1067338437245509
+                }
+              },
+              {
+                "count": 228,
+                "maximum": 2.640401421274233,
+                "mean": -0.5254115677152285,
+                "minimum": -3.994169001989757,
+                "quantiles": {
+                  "0.5": -0.501806574828022,
+                  "0.95": 0.5970251128054243,
+                  "0.99": 1.673301578003587
+                }
+              },
+              {
+                "count": 234,
+                "maximum": 1.538995958198452,
+                "mean": -0.5417402863068781,
+                "minimum": -4.114942029795217,
+                "quantiles": {
+                  "0.5": -0.4715796165830428,
+                  "0.95": 0.6411548273827504,
+                  "0.99": 1.0624630646364719
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 2.640401421274233,
+              "mean": 0.12394356674685157,
+              "minimum": -1.2679777530443623,
+              "quantiles": {
+                "0.5": -0.0037811602976864644,
+                "0.95": 1.2828961090409206,
+                "0.99": 1.999760921323857
+              }
+            }
+          },
+          "marginal_max": {
+            "eligible_pair_scores": {
+              "count": 924,
+              "maximum": 3.4548014785915453,
+              "mean": 0.9911966604358339,
+              "minimum": 0.011417646561647754,
+              "quantiles": {
+                "0.5": 0.8742668457551447,
+                "0.95": 2.0948593184821283,
+                "0.99": 2.6686481458643945
+              }
+            },
+            "per_pair": [
+              {
+                "count": 230,
+                "maximum": 2.682122537670918,
+                "mean": 0.9164347353684495,
+                "minimum": 0.02380674497679491,
+                "quantiles": {
+                  "0.5": 0.8379497402088885,
+                  "0.95": 1.9425042382717028,
+                  "0.99": 2.4855551623412606
+                }
+              },
+              {
+                "count": 232,
+                "maximum": 3.230295156177506,
+                "mean": 1.0086153226445762,
+                "minimum": 0.01951176214806286,
+                "quantiles": {
+                  "0.5": 0.9219237109564353,
+                  "0.95": 2.0464582071580604,
+                  "0.99": 2.5102515500329483
+                }
+              },
+              {
+                "count": 228,
+                "maximum": 3.3779685406707642,
+                "mean": 1.0206519540363241,
+                "minimum": 0.07766498934946722,
+                "quantiles": {
+                  "0.5": 0.8818759872737272,
+                  "0.95": 2.0771381911623426,
+                  "0.99": 2.7358986047071854
+                }
+              },
+              {
+                "count": 234,
+                "maximum": 3.4548014785915453,
+                "mean": 1.0187107894621517,
+                "minimum": 0.011417646561647754,
+                "quantiles": {
+                  "0.5": 0.8598550517569319,
+                  "0.95": 2.4270098965888,
+                  "0.99": 3.006459998916037
+                }
+              }
+            ],
+            "per_row_maximum": {
+              "count": 256,
+              "maximum": 3.4548014785915453,
+              "mean": 1.5926664690923837,
+              "minimum": 0.45341009193641124,
+              "quantiles": {
+                "0.5": 1.5064414743489605,
+                "0.95": 2.5745930388169436,
+                "0.99": 3.2434215375079756
+              }
+            }
+          }
+        },
+        "missing_pair_count": 100,
+        "no_eligible_rows": 0,
+        "samples": 256
+      },
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "scenarios": {
+        "changed_rho_-0.8": {
+          "affected_pair_counts": [
+            275,
+            236,
+            279,
+            234
+          ],
+          "common_unscorable_targets": 107,
+          "dependence_unscorable_targets": 107,
+          "eligible_pair_count_histogram": [
+            0,
+            3,
+            36,
+            301,
+            684
+          ],
+          "hidden_affected_pairs": 107,
+          "marginal_unscorable_targets": 107,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                100,
+                82,
+                100,
+                81
+              ],
+              "k": 2,
+              "misses_at_1": 363,
+              "misses_at_k": 189,
+              "precision_at_1": 0.6455078125,
+              "recall_at_k": 0.8154296875,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                223,
+                177,
+                214,
+                182
+              ],
+              "k": 2,
+              "misses_at_1": 796,
+              "misses_at_k": 513,
+              "precision_at_1": 0.22265625,
+              "recall_at_k": 0.4990234375,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.24674479166666669,
+              "expected_recall_at_k": 0.49153645833333337,
+              "k": 2,
+              "misses_at_1": 764,
+              "misses_at_k": 544,
+              "precision_at_1": 0.25390625,
+              "recall_at_k": 0.46875,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        },
+        "changed_rho_0": {
+          "affected_pair_counts": [
+            248,
+            242,
+            272,
+            262
+          ],
+          "common_unscorable_targets": 104,
+          "dependence_unscorable_targets": 104,
+          "eligible_pair_count_histogram": [
+            0,
+            7,
+            44,
+            298,
+            675
+          ],
+          "hidden_affected_pairs": 104,
+          "marginal_unscorable_targets": 104,
+          "methods": {
+            "dependence": {
+              "failures_by_affected_pair": [
+                106,
+                105,
+                125,
+                127
+              ],
+              "k": 2,
+              "misses_at_1": 463,
+              "misses_at_k": 286,
+              "precision_at_1": 0.5478515625,
+              "recall_at_k": 0.720703125,
+              "samples": 1024
+            },
+            "marginal_max": {
+              "failures_by_affected_pair": [
+                185,
+                174,
+                199,
+                185
+              ],
+              "k": 2,
+              "misses_at_1": 743,
+              "misses_at_k": 470,
+              "precision_at_1": 0.2744140625,
+              "recall_at_k": 0.541015625,
+              "samples": 1024
+            },
+            "random": {
+              "expected_precision_at_1": 0.24910481770833331,
+              "expected_recall_at_k": 0.49723307291666663,
+              "k": 2,
+              "misses_at_1": 750,
+              "misses_at_k": 502,
+              "precision_at_1": 0.267578125,
+              "recall_at_k": 0.509765625,
+              "samples": 1024
+            }
+          },
+          "no_eligible_rows": 0,
+          "samples": 1024
+        }
+      },
+      "seed": 71
+    }
+  ],
+  "provenance": {
+    "packages": {
+      "numpy": "2.5.3",
+      "pandas": "3.0.6",
+      "scipy": "1.18.1"
+    },
+    "python": "3.13.13",
+    "source_sha256": {
+      "scripts/benchmark_synthetic_dependency.py": "afbad0dda84058771e298797692d3ee9e9e7f7502a8dfd0fd4156eaa5b328926",
+      "src/synthetic_dependency/__init__.py": "6cb93a92851b2856198b02766db391c931ee16d6f92836f7eabdf938218001ec",
+      "src/synthetic_dependency/benchmark.py": "e162e8d1633cb7e71412e8e1979fc233c9d2a2afda2b37d510b1b47831353d89",
+      "src/synthetic_dependency/data.py": "f9a6e46f1e4f5fc92e2eb292382b01a41d76271598fef068d2d855dcec750329",
+      "src/synthetic_dependency/model.py": "77d6d477109e3410cd5957ca83320ac9f3707afbc6ed4380f88e33551c46e5d2",
+      "src/synthetic_localization/marginal.py": "8f198ae5bc3a3168da30ddba3b462e35ca43ecc1fceff6b413f2265a2b906225",
+      "src/synthetic_localization/metrics.py": "a32a26e1cbe9a071b4a17b93e66e3dd1825633a0dfe65ac3c1f80b4e5076feef",
+      "tests/test_synthetic_dependency.py": "1b8f54af9cc96f94d90bb1dfab97ef3fa2a477d6f56c6ca6cd2ab5da862bf33d"
+    }
+  },
+  "settings": {
+    "candidate_pool": "intersection of dependence and marginal complete-pair eligibility",
+    "dependence_score": "negative Gaussian joint-minus-marginal log-density ratio; no clipping or absolute value",
+    "fitting": {
+      "correlation": "complete-case Pearson",
+      "marginals": "observed mean and population standard deviation",
+      "min_observations": 20,
+      "minimum_scale": 1e-12,
+      "singular_margin": 1e-06
+    },
+    "generating_marginals": {
+      "means": [
+        -2.0,
+        -1.4285714285714286,
+        -0.8571428571428572,
+        -0.2857142857142858,
+        0.2857142857142856,
+        0.8571428571428568,
+        1.4285714285714284,
+        2.0
+      ],
+      "scales": [
+        0.5,
+        0.7142857142857143,
+        0.9285714285714286,
+        1.1428571428571428,
+        1.3571428571428572,
+        1.5714285714285714,
+        1.7857142857142856,
+        2.0
+      ]
+    },
+    "generator": {
+      "changed_rhos": [
+        0.0,
+        -0.8
+      ],
+      "healthy_rho": 0.8,
+      "missing_probability": 0.05,
+      "n_control": 256,
+      "n_evaluation": 1024,
+      "n_fit": 1024,
+      "n_pairs": 4
+    },
+    "marginal_pair_score": "maximum of the two committed marginal-deviation scores",
+    "missingness": "independent Bernoulli per coordinate; constant nuisance also masked; all_missing always NaN",
+    "random_seed_recipe": "[data_seed, 1701, scenario_index]",
+    "recall_k": 2,
+    "seeds": [
+      11,
+      23,
+      37,
+      51,
+      71
+    ],
+    "ties": "predefined pair index ascending"
+  }
+}
