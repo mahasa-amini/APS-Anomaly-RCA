@@ -90,6 +90,12 @@ physical root causes or validate the legacy RCA workflow.
 document a one-time evaluation under this new protocol, but cannot claim the
 test set was untouched throughout the entire history of the project.
 
+The [Phase 1 validation explanation audit](results/phase1_explanations/README.md)
+gives retrospective, exploratory explanations of the recorded classifier on the
+validation split. `cd_000` has zero contribution in this model. The five-row
+false-negative group cannot support a general fault-mechanism conclusion;
+model contributions do not establish physical causes.
+
 ## Phase 1 environment and checks
 
 The project environment is `.venv/`, which is ignored by Git. The tested package
