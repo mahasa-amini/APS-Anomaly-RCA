@@ -6,6 +6,13 @@ Cite the UCI dataset record and DOI [10.24432/C51S51](https://doi.org/10.24432/C
 when using the data. Obtain the files from that page yourself; this repository
 does not include or automatically download raw APS records.
 
+The official UCI dataset description defines `pos` as failures of a specific APS
+component and `neg` as truck failures caused by components unrelated to APS. The
+reported classifier distinguishes these two dataset classes; it has not been
+evaluated as a general healthy-versus-faulty truck detector. The anonymized
+features and binary class labels do not provide instance-level root-cause
+annotations or identify an initiating sensor.
+
 ## Place the original CSV files
 
 Use the UCI page's **Download** control and extract the original CSVs if they

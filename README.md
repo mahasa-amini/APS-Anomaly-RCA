@@ -4,6 +4,14 @@ This repository contains a new reproducible Phase 1 failure-detection workflow
 and an older exploratory root cause analysis (RCA) workflow. They currently use
 separate artifacts and should not be treated as one validated experiment.
 
+The official [UCI dataset description](https://archive.ics.uci.edu/dataset/421/aps+failure+at+scania+trucks)
+defines `pos` as failures of a specific APS component and `neg` as truck failures
+caused by components unrelated to APS. The reported classifier distinguishes
+these two dataset classes; it has not been evaluated as a general
+healthy-versus-faulty truck detector. The anonymized features and binary class
+labels do not provide instance-level root-cause annotations or identify an
+initiating sensor.
+
 **Getting the data / Reproduction:** [original APS files, input checks, and
 reproduction levels](docs/data-and-reproduction.md).
 
