@@ -1,5 +1,8 @@
 # RCA audit milestone 1: training feature quality
 
+The [APS dependency-feasibility report](aps-develop-20260927T135520Z-a6474c-dependency-feasibility-v1.md)
+is a training-only feasibility audit; it does not validate APS root-cause localization.
+
 Follow-up: [milestone 2, synthetic legacy Copula diagnostic](legacy-copula-synthetic-diagnostic.md)
 reproduces the constant-feature artifact and separately checks marginal versus
 dependence scoring. It leaves this milestone's summary and the legacy analyzer unchanged.

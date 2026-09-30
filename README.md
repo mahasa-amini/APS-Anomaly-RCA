@@ -181,6 +181,9 @@ evaluates localization of a **known synthetic pair change** under a fixed
 Gaussian protocol. It does not establish an initiating sensor, physical
 causality, or validated APS RCA.
 
+The [APS dependency-feasibility report](results/rca/aps-develop-20260927T135520Z-a6474c-dependency-feasibility-v1.md)
+is a training-only feasibility audit; it does not validate APS root-cause localization.
+
 ## Legacy RCA: current inputs and interpretation
 
 The [first RCA audit milestone](results/rca/README.md) checks raw feature quality
