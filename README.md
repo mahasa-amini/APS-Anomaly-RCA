@@ -1,32 +1,36 @@
 # APS Failure Detection Baseline and Exploratory RCA
 
-This repository contains a new reproducible Phase 1 failure-detection workflow
-and an older exploratory root cause analysis (RCA) workflow. They currently use
-separate artifacts and should not be treated as one validated experiment.
+This repository separates a reproducible Phase 1 classification workflow from an older
+exploratory root cause analysis (RCA) workflow; they use separate artifacts and
+should not be treated as one validated experiment.
 
-The official [UCI dataset description](https://archive.ics.uci.edu/dataset/421/aps+failure+at+scania+trucks)
-defines `pos` as failures of a specific APS component and `neg` as truck failures
-caused by components unrelated to APS. The reported classifier distinguishes
-these two dataset classes; it has not been evaluated as a general
-healthy-versus-faulty truck detector. The anonymized features and binary class
-labels do not provide instance-level root-cause annotations or identify an
-initiating sensor.
+## Project at a glance
 
-**Getting the data / Reproduction:** [original APS files, input checks, and
-reproduction levels](docs/data-and-reproduction.md).
-
-## Current evidence and scope
-
-- **Phase 1 development and official APS test evaluation are complete.** The
-  validation-selected threshold was committed before the test was run. The test
-  result below is a fixed-threshold failure-detection evaluation; validation
-  metrics remain selection results, not independent final-test estimates.
-- The existing `xgboost_aps_model.pkl`, processed arrays, figures and time-series
-  outputs are legacy artifacts. They are not results of the new Phase 1 run.
-- RCA scores, SHAP explanations, clusters and correlation graphs are exploratory
-  associations or model explanations. They do not establish a definite physical
-  root cause. Synthetic demonstrations do not establish cross-domain or
-  real-world generalization.
+- **Task:** distinguish failures of a specific APS component (`pos`) from truck
+  failures caused by other components (`neg`), as defined by the official
+  [UCI dataset description](https://archive.ics.uci.edu/dataset/421/aps+failure+at+scania+trucks)—not
+  general healthy-versus-faulty truck detection.
+- **Recorded protocol:** fit the median imputer on training rows only, use a
+  stratified training/validation split, and select the threshold on validation
+  by minimizing `10 × FP + 500 × FN`. The threshold and validation results were
+  committed before the official test; validation metrics remain selection
+  results, not independent final-test estimates.
+- **Official test:** on 16,000 rows at threshold **0.01**, the classifier records
+  **359 TP, 16 FN, 354 FP, 95.73% recall, and cost 11,540**. The **75% cost
+  reduction** is relative to threshold 0.5 on the same model (cost 46,160) and
+  comes with more false alarms (354 versus 16).
+- **Reproduce and inspect:** see the [reproduction guide](docs/data-and-reproduction.md),
+  recorded [test summary](results/phase1/aps-develop-20260927T135520Z-a6474c/test.json),
+  and [passing GitHub Actions CI](https://github.com/mahasa-amini/APS-Anomaly-RCA/actions/workflows/ci.yml).
+- **RCA boundary:** synthetic localization benchmarks, RCA scores, SHAP/model
+  explanations, clusters and correlation graphs are exploratory. They do not
+  establish a physical root cause or cross-domain/real-world generalization;
+  the anonymized features and binary labels provide no instance-level physical
+  root-cause annotations or initiating-sensor labels. See the
+  [historical test-use limitation](#historical-test-use-limitation).
+- **Artifact boundary:** the existing `xgboost_aps_model.pkl`, processed arrays,
+  figures and time-series outputs are legacy artifacts, not results of the new
+  Phase 1 run.
 
 ## Recorded Phase 1 validation result
 
@@ -97,7 +101,9 @@ these probability-based metrics are the same for both threshold comparisons.
 This is a **fixed-threshold failure-detection result**. It does not establish
 physical root causes or validate the legacy RCA workflow.
 
-**Historical test-use limitation:** Earlier `scania_project` scripts used the same official APS test file. We can
+### Historical test-use limitation
+
+Earlier `scania_project` scripts used the same official APS test file. We can
 document a one-time evaluation under this new protocol, but cannot claim the
 test set was untouched throughout the entire history of the project.
 
